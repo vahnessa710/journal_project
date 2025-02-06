@@ -1,7 +1,23 @@
 <div id="<%= dom_id category %>">
-  <p>
-    <strong>Name:</strong>
+  <h2>
     <%= category.name %>
-  </p>
+  </h2>
+
+  <div class="category-details">
+  <p>What are your goals?</p>
+  <div class="tasks">
+    <% @tasks.each do |task| %>
+      <div class="task">
+        <h3><%= task.name %></h3>
+        <p><%= task.description %></p>
+        <p>Due Date: <%= task.due_date %></p>
+        <p><%= task.priority %></p>
+        <p><%= task.completed ? "Completed" : "Incomplete" %></p>
+        <%= link_to 'Edit', edit_category_task_path(category, task) %> |
+        <%= link_to 'Delete', category_task_path(category, task), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 </div>

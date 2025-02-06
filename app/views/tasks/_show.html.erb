@@ -1,0 +1,10 @@
+<h3><%= task.name %></h3>
+<p><%= task.description %></p>
+  <% if task.due_date.present? %>  <!-- Check if due_date is not nil -->
+    <%= task.due_date.strftime('%A, %B %d, %Y') %>
+  <% else %>
+    <%= "No due date set" %>  <!-- Display a message if due_date is nil -->
+  <% end %>
+<p>Priority: <%= task.priority ? "High" : "Normal" %></p>
+
+

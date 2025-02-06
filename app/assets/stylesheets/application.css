@@ -1,10 +1,208 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1f1f1f;
+    color: #f0f0f0;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    color: #00aaff;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Categories Section */
+#categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.category-card {
+    background-color: #2d2d2d;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 280px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.category-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #00aaff;
+}
+
+.category-actions {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.category-actions a {
+    color: #00aaff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.category-actions a:hover {
+    color: #00bfff;
+}
+
+/* Tasks Section */
+.tasks {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    color: #bbb;
+}
+
+.task {
+    background-color: #3b3b3b;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    color: #eee;
+    transition: background-color 0.3s ease;
+}
+
+.task:hover {
+    background-color: #444;
+}
+
+.task button {
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 5px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.task button:hover {
+    background-color: #c0392b;
+}
+
+/* New Category Button */
+.new-category {
+    display: block;
+    background-color: #00aaff;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    width: 100%;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.new-category:hover {
+    background-color: #00bfff;
+}
+
+/* Modal (for adding/editing categories or tasks) */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal .modal-content {
+    background: #222;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+}
+
+.modal .modal-content h3 {
+    color: #00aaff;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.modal .modal-content button.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e74c3c;
+    border: none;
+    color: white;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal .modal-content button.close:hover {
+    background: #c0392b;
+}
+
+/* Input Fields and Buttons */
+input, button {
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+input:focus, button:focus {
+    outline: none;
+    border-color: #00aaff;
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
+}
+
+button {
+    background-color: #00aaff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #00bfff;
+}
