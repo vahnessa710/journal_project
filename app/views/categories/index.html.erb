@@ -7,26 +7,23 @@
 </header>
 
 <div id="categories">
-  <% @categories.each do |category| %>
-    <div class="category-card">
-      <h2><%= link_to category.name, category_path(category) %></h2>
-      
-      <div class="category-actions">
-        <%= link_to "Show this category", category, class: "view-category" %> |
-        <%= link_to "Edit", edit_category_path(category), class: "edit-category" %> |
-        <%= link_to "Delete", category, method: :delete, data: { confirm: "Are you sure?" }, class: "delete-category" %>
-      </div>
+  
+    
+    <% @categories.each do |category| %>  
+    <div class="category-card" id="my-scrollable-div">
+        <div class="category-actions">
+          <%= link_to category_path(category), class: "main-category-link" do %>
+          <h2><%= category.name %></h2>
+        </div>
+      <% end %>
 
       <div class="tasks">
         <% category.tasks.each do |task| %>
           <%= render partial: "tasks/show", locals: { task: task, category: category } %>
         <% end %>
       </div>
+  </div>
 
-      
-    </div>
-  <% end %>
+<% end %>
 </div>
-
-
 <%= link_to "New Category", new_category_path, class: "new-category" %>

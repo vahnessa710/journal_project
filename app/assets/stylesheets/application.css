@@ -3,12 +3,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1f1f1f;
-    color: #f0f0f0;
+    color: #333;
     line-height: 1.6;
     padding: 20px;
 }
@@ -20,13 +20,16 @@ header {
 }
 
 header h1 {
-    font-size: 2.8rem;
+    font-size: 2rem;
     color: #00aaff;
     font-weight: 600;
     letter-spacing: 1px;
 }
 
-/* Categories Section */
+
+
+/* Index Categories Section */
+
 #categories {
     display: flex;
     flex-wrap: wrap;
@@ -35,13 +38,12 @@ header h1 {
 }
 
 .category-card {
-    background-color: #2d2d2d;
     color: #fff;
-    padding: 20px;
     border-radius: 10px;
-    width: 280px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow-y: scroll;
+    background-color: #F9F9F9;;
 }
 
 .category-card:hover {
@@ -50,8 +52,7 @@ header h1 {
 }
 
 .category-card h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+    font-size: 1.3rem;
     color: #00aaff;
 }
 
@@ -69,18 +70,41 @@ header h1 {
 }
 
 .category-actions a:hover {
-    color: #00bfff;
+    color: hsl(195, 100%, 40%);
 }
 
-/* Tasks Section */
+/* Show Category Section */
+
+.category-name-container{
+    display: flex;
+}
+
+#edit-category-link{
+    background: none;  /* Remove button background */
+  border: none;      /* Remove button border */
+  padding: 0;        /* Remove padding */
+  font-size: 24px;   /* Set appropriate font size for the icon */
+  cursor: pointer;  /* Make it appear clickable */
+}
+
+#edit-category-link .material-symbols-outlined {
+    font-size: 24px;  /* Ensure icon is the right size */
+    color: black;
+  }
+
+.main-category-link{
+    text-decoration: none;
+}
+
+
 .tasks {
     margin-top: 15px;
     font-size: 1.1rem;
     color: #bbb;
-}
+} /* Tasks Container Categories */
 
 .task {
-    background-color: #3b3b3b;
+    background-color: hsl(0, 0%, 87%);
     padding: 10px;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -88,12 +112,12 @@ header h1 {
     justify-content: space-between;
     align-items: center;
     font-size: 1rem;
-    color: #eee;
+    color: #333;
     transition: background-color 0.3s ease;
 }
 
 .task:hover {
-    background-color: #444;
+    background-color: #bbb;
 }
 
 .task button {
@@ -110,6 +134,66 @@ header h1 {
 .task button:hover {
     background-color: #c0392b;
 }
+
+/* General styling for the task container */
+#task-name {
+    font-size: 15px; /* Make the task name larger */
+    font-weight: bold; /* Make it bold for emphasis */
+    color: #333; /* Dark gray color for the task name */
+    padding: 5px;
+    border-radius: 8px;
+  }
+  
+  p {
+    font-size: 1rem; /* Set a readable font size for the description and other text */
+    line-height: 1.6; /* Line spacing for better readability */
+    color: #555; /* Lighter gray text for general paragraphs */
+    margin: 5px 0; /* Space between each paragraph */
+  }
+  
+  /* Style for the due date */
+  p.due-date, p.no-due-date {
+    font-style: italic; /* Italicize the due date */
+    color: #777; /* Lighter gray for the due date */
+    padding: 5px;
+    border-radius: 8px;
+  }
+  
+  p.due-date span {
+    font-weight: bold; /* Bold for the label */
+  }
+  
+  /* Style for priority */
+  p.priority {
+    font-weight: bold; /* Make the priority label bold */
+    color: #fff; /* White text */
+    padding: 5px 10px; /* Padding around the priority */
+    border-radius: 5px; /* Rounded corners for the priority badge */
+    display: inline-block; /* Makes it inline with the text */
+  }
+  
+  p.priority.high {
+    background-color: #e74c3c; /* Red color for high priority */
+  }
+  
+  p.priority.normal {
+    background-color: #2ecc71; /* Green color for normal priority */
+  }
+  
+  /* Additional space between task details */
+  .task-details {
+    padding: 15px;
+    border: 1px solid #ddd; /* Light border around the task details */
+    border-radius: 8px; /* Rounded corners for the task box */
+    background-color: hsl(0, 0%, 88%); /* Light gray background */
+    margin-bottom: 20px; /* Space between tasks */
+  }
+  
+  /* .task-details:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+    /* background-color: #f1f1f1; Slightly darker background on hover */
+  /* }  */
+  
 
 /* New Category Button */
 .new-category {
@@ -158,7 +242,7 @@ header h1 {
 
 .modal .modal-content h3 {
     color: #00aaff;
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin-bottom: 20px;
 }
 
@@ -185,7 +269,6 @@ input, button {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #333;
-    width: 100%;
     margin-bottom: 20px;
 }
 
@@ -206,3 +289,55 @@ button {
 button:hover {
     background-color: #00bfff;
 }
+
+.delete-button {
+    margin-top:100px;
+    background-color: hsl(12, 100%, 40%);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: hsl(12, 100%, 35%);
+}
+
+.hidden {
+    display: none;
+  }
+
+.visible{
+    display: flex;
+}
+  
+
+#my-scrollable-div {
+    width: 30%;
+    height: 300px; /* Set a fixed height or max height for scrolling */
+    overflow: auto; /* Allow the content to scroll */
+    padding: 10px;
+  }
+
+ /* Customize the scrollbar */
+#my-scrollable-div::-webkit-scrollbar {
+    width: 10px; /* Set the width of the vertical scrollbar */
+    height: 10px; /* Set the height of the horizontal scrollbar (if needed) */
+  }
+  
+  /* Style the track (the area the scrollbar moves in) */
+  #my-scrollable-div::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Light grey background for the track */
+    border-radius: 10px; /* Optional: rounded corners for the track */
+  }
+  
+  /* Style the handle (the draggable part of the scrollbar) */
+  #my-scrollable-div::-webkit-scrollbar-thumb {
+    background-color: #888; /* Darker color for the thumb */
+    border-radius: 10px; /* Optional: rounded corners for the thumb */
+  }
+  
+  /* Change thumb color when hovering */
+  #my-scrollable-div::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(0, 0%, 43%); /* Darker color when hovered */
+  }
