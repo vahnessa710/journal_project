@@ -5,6 +5,7 @@
 <div id="edit-category-form" style="display: none;">
   <%= render "form", category: @category %>
 </div>
+<%= link_to "Add Task", new_category_task_path(@category) %>
 
 <div>
   <%= button_to "Delete all", @category, class: "delete-button", method: :delete, data: { turbo_confirm: "Are you sure you want to delete this post?" } %>
