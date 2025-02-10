@@ -1,0 +1,13 @@
+<h2>All Tasks Due Today</h2>
+
+<% if @tasks_due_today.any? %>
+  <% @tasks_due_today.each do |task| %>
+    <div class="task">
+      <h4><%= task.name %></h4>
+      <p>Due: <%= task.due_date.strftime('%A, %B %d, %Y') %></p>
+      <p>Priority: <%= task.priority ? "High" : "Normal" %></p>
+    </div>
+  <% end %>
+<% else %>
+  <p>No tasks are due today.</p>
+<% end %>

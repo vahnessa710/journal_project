@@ -4,7 +4,7 @@
       <%= category.name %>
     </h2>
 
-    <!-- Updated link with Material icon -->
+  
   <%= button_tag type: "button", id: "edit-category-link", class: "link" do %>
     <span class="material-symbols-outlined">edit_square</span>
   <% end %>
@@ -34,5 +34,26 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener("turbo:load", function () {
+    const editButton = document.getElementById("edit-category-link");
+    const editForm = document.getElementById("edit-category-form");
+
+    if (!editButton || !editForm) {
+      console.log("Edit button or form not found");
+      return;
+    }
+
+    // Toggle visibility on click
+    editButton.addEventListener("click", function (event) {
+      console.log("edit button clicked");
+      event.preventDefault();
+      
+      // Toggle the 'hidden' class to show/hide the form
+      editForm.classList.toggle("visible");
+    });
+  });
+</script>
 
 

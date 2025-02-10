@@ -1,6 +1,12 @@
 class TasksController < ApplicationController
-  before_action :set_category
+
+  before_action :set_category, except: [:due_today] 
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+
+  # GET /tasks/due_today
+  def due_today
+    @tasks_due_today = Task.where(due_date: Date.today.all_day).order(priority: :desc)
+  end
 
   # GET /categories/:category_id/tasks
   def index
@@ -34,7 +40,7 @@ class TasksController < ApplicationController
   # PATCH/PUT /categories/:category_id/tasks/:id
   def update
     if @task.update(task_params)
-      redirect_to category_task_path(@category, @task), notice: 'Task was successfully updated.'
+      redirect_to category_path(@category), notice: 'Task was successfully updated.'
     else
       render :edit
     end

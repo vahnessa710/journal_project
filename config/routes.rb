@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   resources :categories do
     resources :tasks
+
   end
+
+   # ✅ Add a route to fetch all tasks due today
+  get "/tasks/due_today", to: "tasks#due_today", as: "tasks_due_today"
+  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

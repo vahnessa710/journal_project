@@ -6,7 +6,14 @@
   <h1>Categories for Journal App</h1>
 </header>
 <hr>
+<div id= "due-today">
+  
+    <%= render partial: "tasks/tasks_due_today", locals: { tasks_today: @tasks_today } %>
+  <%= link_to "View Today's Tasks", tasks_due_today_path %>
+</div>
+
 <div id="categories">
+  
     <% @categories.each do |category| %>  
     <div class="category-card" id="my-scrollable-div">
         <div class="category-actions">
@@ -30,4 +37,3 @@
   </div>
 
 </div>
-

@@ -37,11 +37,20 @@ header h1 {
     padding: 20px;
 }
 
+#due-today-css{
+    border-radius: 10px;
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+    border: solid 1px hsl(0, 1%, 74%);
+    padding: 20px;
+    background-color: hsl(60, 100%, 80%);
+}
 .category-card {
     border-radius: 10px;
     /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow-y: scroll;
+    margin-top: 20px;
     border: solid 1px hsl(0, 1%, 74%);
     padding: 20px;
 }
@@ -316,7 +325,7 @@ button:hover {
 
 #my-scrollable-div {
     width:15%;
-    height: 350px; /* Set a fixed height or max height for scrolling */
+    height: 100px; /* Set a fixed height or max height for scrolling */
     overflow: auto; /* Allow the content to scroll */
     padding: 15px;
   }
