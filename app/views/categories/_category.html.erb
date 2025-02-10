@@ -17,26 +17,32 @@
     <%= render "form", category: @category %>
   </div>
 
+<!-- This div Tasks to Do: -->
   <div class="category-details">
     <h3>Tasks to do:</h3>
     <div class="tasks">
-      <% @tasks.each do |task| %>
-        <div class="task">
-          <h3><%= task.name %></h3>
-          <p><%= task.description %></p>
-          <p>Due Date: <%= task.due_date %></p>
-          <p><%= task.priority %></p>
-          <p><%= task.completed ? "Completed" : "Incomplete" %></p>
-          <%= link_to 'Edit', edit_category_task_path(category, task) %> |
-          <%= link_to 'Delete', category_task_path(category, task), method: :delete, data: { confirm: 'Are you sure?' } %>
-        </div>
-      <% end %>
-    </div>
+  <% if @tasks.any? %>
+    <% @tasks.each do |task| %>
+      <div class="task">
+        <h3><%= task.name %></h3>
+        <p><%= task.description %></p>
+        <p>Due Date: <%= task.due_date || "No due date set" %></p>
+        <p>Priority: <%= task.priority ? "High" : "Normal" %></p>
+        <p>Status: <%= task.completed ? "Completed" : "Incomplete" %></p>
+        <%= link_to 'Edit', edit_category_task_path(@category, task) %> |
+        <%= button_to 'Delete', category_task_path(@category, task), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No tasks for "<%= @category.name %>" yet.</p>
+  <% end %>
+</div>
+
   </div>
 </div>
 
 <script>
-  document.addEventListener("turbo:load", function () {
+  document.addEventListener("turbo:render", function () {
     const editButton = document.getElementById("edit-category-link");
     const editForm = document.getElementById("edit-category-form");
 
