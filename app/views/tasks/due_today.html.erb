@@ -6,7 +6,6 @@
       <h4><%= task.name %></h4>
       <p>Due: <%= task.due_date.strftime('%A, %B %d, %Y') %></p>
       <p>Priority: <%= task.priority ? "High" : "Normal" %></p>
-      
     </div>
   <% end %>
 <% else %>

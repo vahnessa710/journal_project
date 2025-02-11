@@ -1,17 +1,17 @@
-<div id="tasks-due-today">
-  <h2>Tasks Due Today</h2>
 
+<h2>Tasks Due Today</h2>
+<div class = "task-list-due-today-container">
   <% if @tasks_today.any? %>
-    <ul>
+    
       <% @tasks_today.each do |task| %>
-        <li>
-          <strong><%= task.name %></strong> (Category: <%= task.category.name %>)
-          <br>
-          <span>Due Date: <%= task.due_date.strftime('%A, %B %d, %Y') %></span>
-        </li>
+        
+         <p class= "task-name-today"> <%= task.name %> (<%= task.category.name %>)</p>   
+          <span class= "task-time-today">Due Date: <%= task.due_date.strftime('%A, %B %d, %Y') %></span>
+        <br>
       <% end %>
-    </ul>
+    
   <% else %>
     <p>No tasks due today!</p>
   <% end %>
+
 </div>

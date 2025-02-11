@@ -3,37 +3,44 @@
 <% content_for :title, "Categories" %>
 
 <header>
-  <h1>Categories for Journal App</h1>
+  <h1>Journal App</h1>
 </header>
 <hr>
-<div id= "due-today">
-  
+
+<div class = "index-container">
+    
+
+  <div class = "buggy-container" id = "my-scrollable-today">
+
     <%= render partial: "tasks/tasks_due_today", locals: { tasks_today: @tasks_today } %>
-  <%= link_to "View Today's Tasks", tasks_due_today_path %>
-</div>
+    <%= link_to "View Today's Tasks", tasks_due_today_path %>
 
-<div id="categories">
-  
-    <% @categories.each do |category| %>  
-    <div class="category-card" id="my-scrollable-div">
-        <div class="category-actions">
-          <%= link_to category_path(category), class: "main-category-link" do %>
-          <h2><%= category.name %></h2>
-        </div>
-      
+  </div>
 
-      <div class="tasks">
-        <% category.tasks.each do |task| %>
-          <%= render partial: "tasks/show", locals: { task: task, category: category } %>
-        <% end %>
+      <div class ="new-category-container">
+        <%= link_to "+", new_category_path, class: "new-category" %>
       </div>
-  </div>
-  <% end %>
-  
+        
+        <div id="categories">
+          <% @categories.each do |category| %>
+            <div class="category-card" id="my-scrollable-div">
+            
+              <div class="category-actions">
+                <%= link_to category_path(category), class: "main-category-link" do %>
+                <h2><%= category.name %></h2>   
+              </div>
+          
+
+              <div class="tasks">
+                <% category.tasks.each do |task| %>
+                  <%= render partial: "tasks/show", locals: { task: task, category: category } %>
+                <% end %>
+              </div>
+        </div>
+          <% end %>
+      
   <% end %>
 
-  <div class ="new-category-container">
-    <%= link_to "+", new_category_path, class: "new-category" %>
-  </div>
 
+</div>
 </div>

@@ -14,19 +14,15 @@ body {
 }
 
 /* Header */
-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
 
 header h1 {
     font-size: 2rem;
     color: hsl(0, 0%, 30%);
     font-weight: 600;
     letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 20px;
 }
-
-
 
 /* Index Categories Section */
 
@@ -37,15 +33,6 @@ header h1 {
     padding: 20px;
 }
 
-#due-today-css{
-    border-radius: 10px;
-    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-top: 20px;
-    border: solid 1px hsl(0, 1%, 74%);
-    padding: 20px;
-    background-color: hsl(60, 100%, 80%);
-}
 .category-card {
     border-radius: 10px;
     /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); */
@@ -53,6 +40,7 @@ header h1 {
     margin-top: 20px;
     border: solid 1px hsl(0, 1%, 74%);
     padding: 20px;
+    height: 180px;
 }
 
 .category-card:hover {
@@ -62,7 +50,6 @@ header h1 {
 
 .category-card h2 {
     font-size: 1.3rem;
-    /* color: #00aaff; */
     color: hsl(0, 0%, 25%);
 }
 
@@ -90,7 +77,7 @@ header h1 {
 }
 
 #edit-category-link{
-    background: none;  /* Remove button background */
+  background: none;  /* Remove button background */
   border: none;      /* Remove button border */
   padding: 0;        /* Remove padding */
   font-size: 24px;   /* Set appropriate font size for the icon */
@@ -200,10 +187,6 @@ header h1 {
     margin-bottom: 20px; /* Space between tasks */
   }
   
-  /* .task-details:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
-    /* background-color: #f1f1f1; Slightly darker background on hover */
-  /* }  */
   
 
 /* New Category Button */
@@ -225,54 +208,6 @@ padding: 30px;
     background-color: #00bfff;
 }
 
-/* Modal (for adding/editing categories or tasks) */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    align-items: center;
-    justify-content: center;
-}
-
-.modal.active {
-    display: flex;
-}
-
-.modal .modal-content {
-    background: #222;
-    padding: 30px;
-    border-radius: 10px;
-    width: 400px;
-    max-width: 90%;
-    position: relative;
-}
-
-.modal .modal-content h3 {
-    color: #00aaff;
-    font-size: 1rem;
-    margin-bottom: 20px;
-}
-
-.modal .modal-content button.close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #e74c3c;
-    border: none;
-    color: white;
-    font-size: 14px;
-    padding: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.modal .modal-content button.close:hover {
-    background: #c0392b;
-}
 
 /* Input Fields and Buttons */
 input, button {
@@ -321,11 +256,10 @@ button:hover {
 .visible{
     display: flex;
 }
-  
 
 #my-scrollable-div {
-    width:15%;
-    height: 100px; /* Set a fixed height or max height for scrolling */
+    width:25%;
+    height: 300px; /* Set a fixed height or max height for scrolling */
     overflow: auto; /* Allow the content to scroll */
     padding: 15px;
   }
@@ -352,3 +286,62 @@ button:hover {
   #my-scrollable-div::-webkit-scrollbar-thumb:hover {
     background-color: hsl(0, 0%, 63%); /* Darker color when hovered */
   }
+
+  /* index tasks for today css */
+
+.buggy-container{
+    background-color: hsl(0, 5%, 94%);
+    width: 30%;
+    border-radius: 10px;
+    padding: 15px;
+    overflow-y: scroll;
+    padding: 20px;
+    margin-top: 45px;
+}
+.task-name-today{
+    margin-top: 18px;
+    color: hsl(0, 0%, 25%);
+    font-weight: bold;
+}
+.task-time-today{
+    color: hsl(0, 0%, 50%);
+    font-size: 0.8rem;
+}
+.index-container{
+  display: flex;
+  flex-direction: row;
+}
+
+#my-scrollable-today {
+  width:40%;
+  height: 100vh; /* Set a fixed height or max height for scrolling */
+  overflow: auto; /* Allow the content to scroll */
+  padding: 15px;
+}
+
+/* Customize the scrollbar */
+#my-scrollable-today::-webkit-scrollbar {
+  width: 8px; /* Set the width of the vertical scrollbar */
+  height: 10px; /* Set the height of the horizontal scrollbar (if needed) */
+}
+
+/* Style the track (the area the scrollbar moves in) */
+#my-scrollable-today::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Light grey background for the track */
+  border-radius: 10px; /* Optional: rounded corners for the track */
+}
+
+/* Style the handle (the draggable part of the scrollbar) */
+#my-scrollable-today::-webkit-scrollbar-thumb {
+  background-color: hsl(0, 0%, 73%); /* Darker color for the thumb */
+  border-radius: 10px; /* Optional: rounded corners for the thumb */
+}
+
+/* Change thumb color when hovering */
+#my-scrollable-today::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(0, 0%, 63%); /* Darker color when hovered */
+}
+
+.task-list-due-today-container{
+  padding: 10px;
+}

@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories or /categories.json
   def index
-    @categories = Category.includes(:tasks).all 
+    @categories = Category.includes(tasks: :category).order(created_at: :desc)
     @tasks_today = Task.where(due_date: Date.today.all_day).order(priority: :desc)
   end
 
