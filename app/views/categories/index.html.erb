@@ -8,25 +8,54 @@
 <hr>
 
 <div class = "index-container">
-    
-
+  
   <div class = "buggy-container" id = "my-scrollable-today">
 
     <%= render partial: "tasks/tasks_due_today", locals: { tasks_today: @tasks_today } %>
-    <%= link_to "View Today's Tasks", tasks_due_today_path %>
+    <%# <%= link_to "View Today's Tasks", tasks_due_today_path %>
 
   </div>
 
-      <div class ="new-category-container">
-        <%= link_to "+", new_category_path, class: "new-category" %>
-      </div>
+  <div class ="new-category-and-cards-container">
         
-        <div id="categories">
+    <%# ////        %>
+
+    <div class = "new-category-container">
+        
+          <p>New category</p>
+
+            <%= form_with(model: @category) do |form| %>
+
+                      <% if @category.errors.any? %>
+                          <div style="color: red">
+                              <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+                              <ul>
+                                <% @category.errors.each do |error| %>
+                                  <li><%= error.full_message %></li>
+                                <% end %>
+                              </ul>
+                          </div>
+                    <% end %>
+
+                  
+                      <%= form.text_field :name,  placeholder: "Title", class: "new-category-text-field" %>
+                  
+
+                  
+                    <%= form.submit "Save" %>
+                  
+            <% end %>
+          
+  </div>
+        
+        <div id="categories"> 
           <% @categories.each do |category| %>
-            <div class="category-card" id="my-scrollable-div">
-            
+          
+          <div class="category-card" id="my-scrollable-div">
+            <%= link_to category_path(category), class: "main-category-link" do %>
               <div class="category-actions">
-                <%= link_to category_path(category), class: "main-category-link" do %>
+                
                 <h2><%= category.name %></h2>   
               </div>
           
@@ -40,7 +69,7 @@
           <% end %>
       
   <% end %>
-
+</div>
 
 </div>
 </div>

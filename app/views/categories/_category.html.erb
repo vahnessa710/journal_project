@@ -5,16 +5,13 @@
     </h2>
 
   
-  <%= link_to edit_category_path(@category), id: "edit-category-link", class: "link" do %>
-    <span class="material-symbols-outlined">edit_square</span>
+  <%= link_to  edit_category_path(category), class: "link", id: "edit-category-link" do %>
+    <span class="material-symbols-outlined" >edit_square</span>
   <% end %>
 
   </div>
 
-  <!-- This div will hold the edit form and be hidden initially -->
-  <div id="edit-category-form" class = "hidden">
-    <%= render "form", category: @category %>
-  </div>
+  
 
 <!-- This div Tasks to Do: -->
   <div class="category-details">
@@ -40,22 +37,5 @@
   </div>
 </div>
 
-<script>
- document.addEventListener("DOMContentLoaded", function () {
-  const editButton = document.getElementById("edit-category-link");
-  const editForm = document.getElementById("edit-category-form");
-
-  if (!editButton || !editForm) {
-    console.log("Edit button or form not found");
-    return;
-  }
-
-  editButton.addEventListener("click", function (event) {
-    event.preventDefault();
-    editForm.classList.toggle("hidden");
-  });
-});
-
-</script>
 
 

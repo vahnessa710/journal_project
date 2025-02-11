@@ -1,12 +1,12 @@
 
-<h2>Tasks Due Today</h2>
+<h2>Tasks for Today ⏰</h2>
 <div class = "task-list-due-today-container">
   <% if @tasks_today.any? %>
     
       <% @tasks_today.each do |task| %>
         
-         <p class= "task-name-today"> <%= task.name %> (<%= task.category.name %>)</p>   
-          <span class= "task-time-today">Due Date: <%= task.due_date.strftime('%A, %B %d, %Y') %></span>
+         <p class= "task-name-today"> 🚀 <%= task.name %> (<%= task.category.name %>)</p>   
+          <span class= "task-time-today"> 📆 <%= task.due_date.strftime('%A, %B %d, %Y') %></span>
         <br>
       <% end %>
     

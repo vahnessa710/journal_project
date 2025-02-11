@@ -31,6 +31,7 @@ header h1 {
     flex-wrap: wrap;
     gap: 15px;
     padding: 20px;
+    
 }
 
 .category-card {
@@ -41,6 +42,8 @@ header h1 {
     border: solid 1px hsl(0, 1%, 74%);
     padding: 20px;
     height: 180px;
+    
+    width: 200px;
 }
 
 .category-card:hover {
@@ -90,7 +93,9 @@ header h1 {
   }
 
 .main-category-link{
-    text-decoration: none;
+  display: block;
+  text-decoration: none; /* Optional: removes default underline */
+  color: inherit; /* Optional: keeps original text color */
 }
 
 
@@ -190,9 +195,7 @@ header h1 {
   
 
 /* New Category Button */
-.new-category-container{
-padding: 30px;
-}
+
 .new-category {
     background-color: #00aaff;
     color: #fff;
@@ -237,7 +240,7 @@ button:hover {
 }
 
 .delete-button {
-    margin-top:350px;
+    margin-top:300px;
     background-color: hsl(12, 100%, 40%);
     color: #fff;
     border: none;
@@ -288,15 +291,18 @@ button:hover {
   }
 
   /* index tasks for today css */
+.new-category-and-cards-container{
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+}
 
 .buggy-container{
-    background-color: hsl(0, 5%, 94%);
-    width: 30%;
+    background-color: hsl(84, 49%, 90%);
     border-radius: 10px;
-    padding: 15px;
     overflow-y: scroll;
     padding: 20px;
-    margin-top: 45px;
+    margin-top: 40px;
 }
 .task-name-today{
     margin-top: 18px;
@@ -313,10 +319,10 @@ button:hover {
 }
 
 #my-scrollable-today {
-  width:40%;
-  height: 100vh; /* Set a fixed height or max height for scrolling */
+  width:35%;
+  height: auto;/* Set a fixed height or max height for scrolling */
   overflow: auto; /* Allow the content to scroll */
-  padding: 15px;
+  padding: 25px;
 }
 
 /* Customize the scrollbar */
@@ -343,5 +349,24 @@ button:hover {
 }
 
 .task-list-due-today-container{
+  padding: 10px;
+}
+
+
+/* index new category form css */
+.new-category-text-field{
+  border: solid 1px hsl(0, 1%, 74%);
+  border-radius: 5px;
+}
+
+.new-category-container{
+  border: solid 1px hsl(0, 1%, 74%);
+  border-radius: 10px;
+  width: 50%;
+  height: 100px;
+  margin-left: 200px;
+  margin-right: 200px;
+  text-align: center;
+  margin-top: 40px;
   padding: 10px;
 }

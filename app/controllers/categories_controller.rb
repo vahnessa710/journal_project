@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.includes(tasks: :category).order(created_at: :desc)
     @tasks_today = Task.where(due_date: Date.today.all_day).order(priority: :desc)
+    @category = Category.new 
   end
 
   # GET /categories/1 or /categories/1.json
