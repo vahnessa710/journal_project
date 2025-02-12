@@ -218,7 +218,6 @@ input, button {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #333;
-    margin-bottom: 20px;
 }
 
 input:focus, button:focus {
@@ -227,17 +226,6 @@ input:focus, button:focus {
     box-shadow: 0 0 10px rgba(92, 98, 100, 0.5);
 }
 
-button {
-    background-color: #00aaff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #00bfff;
-}
 
 .delete-button {
     margin-top:300px;
@@ -294,14 +282,13 @@ button:hover {
 .new-category-and-cards-container{
   display: flex;
   flex-direction: column;
-  margin-left: 40px;
+  margin-left: 50px;
 }
 
 .buggy-container{
     background-color: hsl(84, 49%, 90%);
     border-radius: 10px;
-    overflow-y: scroll;
-    padding: 20px;
+    margin-left: 30px;
     margin-top: 40px;
 }
 .task-name-today{
@@ -369,4 +356,27 @@ button:hover {
   text-align: center;
   margin-top: 40px;
   padding: 10px;
+}
+
+.edit-button{
+  background-color: #2ecc71;
+  color: #fff;
+  padding: 5px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2sease;
+}
+
+.edit-button:hover {
+  background-color: hsl(145, 63%, 39%);
+}
+
+.back-categories-button{
+  margin-top: 30px;
+}
+
+a{
+  text-decoration: none;
 }

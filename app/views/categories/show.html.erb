@@ -9,5 +9,8 @@
 <div class = "delete-all-btn-container">
   <%= button_to "Delete all", @category, class: "delete-button", method: :delete, data: { turbo_confirm: "Are you sure you want to delete this post?" } %>
 </div>
- <%= link_to "Back to categories", categories_path %>
+
+<div class ="back-categories-button">
+  <%= link_to "Back to categories", categories_path %>
+</div>
 
