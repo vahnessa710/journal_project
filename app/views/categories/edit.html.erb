@@ -1,13 +1,13 @@
 <% content_for :title, "Editing category" %>
 
-<h1>Editing category</h1>
+<h1> Edit Category Name </h1>
 
 <!-- This div will hold the edit form and be hidden initially -->
   <div id="edit-category-form">
     <%= render "form", category: @category %>
   </div>
 
-<div>
+<div class = "back-to-category-group">
   <%= link_to "Show this category", @category %> |
   <%= link_to "Back to categories", categories_path %>
 </div>

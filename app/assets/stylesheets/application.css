@@ -380,3 +380,21 @@ input:focus, button:focus {
 a{
   text-decoration: none;
 }
+
+a:visited {
+  color: hsl(240, 92%, 65%); /* Same color as unvisited to prevent purple */
+}
+
+a:hover {
+  color: hsl(240, 92%, 55%); /* Optional: Change color on hover */
+}
+
+
+.edit-category-form-group{
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.back-to-category-group{
+  margin-top: 15px;
+}
