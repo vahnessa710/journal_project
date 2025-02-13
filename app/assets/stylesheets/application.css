@@ -103,8 +103,10 @@ header h1 {
     margin-top: 15px;
     font-size: 1.1rem;
     color: #bbb;
-} /* Tasks Container Categories */
+} 
 
+
+/*tasks list for show*/ 
 .task {
     background-color: hsl(0, 0%, 87%);
     padding: 10px;
@@ -122,10 +124,10 @@ header h1 {
     background-color: #bbb;
 }
 
-.task button {
+#delete-button {
     background-color: #e74c3c;
     color: #fff;
-    padding: 5px 12px;
+    padding: 7px 12px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -133,7 +135,7 @@ header h1 {
     transition: background-color 0.2s ease;
 }
 
-.task button:hover {
+#delete-button:hover {
     background-color: #c0392b;
 }
 
@@ -358,7 +360,7 @@ input:focus, button:focus {
   padding: 10px;
 }
 
-.edit-button{
+#edit-button{
   background-color: #2ecc71;
   color: #fff;
   padding: 5px 12px;
@@ -369,7 +371,7 @@ input:focus, button:focus {
   transition: background-color 0.2sease;
 }
 
-.edit-button:hover {
+#edit-button:hover {
   background-color: hsl(145, 63%, 39%);
 }
 
@@ -381,9 +383,6 @@ a{
   text-decoration: none;
 }
 
-a:visited {
-  color: hsl(240, 92%, 65%); /* Same color as unvisited to prevent purple */
-}
 
 a:hover {
   color: hsl(240, 92%, 55%); /* Optional: Change color on hover */
@@ -397,4 +396,5 @@ a:hover {
 
 .back-to-category-group{
   margin-top: 15px;
+  color: hsl(240, 92%, 65%); /* Same color as unvisited to prevent purple */
 }

@@ -25,8 +25,8 @@
         <p>Due Date: <%= task.due_date || "No due date set" %></p>
         <p>Priority: <%= task.priority ? "High" : "Normal" %></p>
         <%# <p>Status: <%= task.completed ? "Completed" : "Incomplete" %>
-        <%= link_to 'Edit', edit_category_task_path(@category, task), class: "edit-button" %> |
-        <%= button_to 'Delete', category_task_path(@category, task), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Edit', edit_category_task_path(@category, task), id: "edit-button" %>| 
+         <%= button_to 'Delete', category_task_path(@category, task), id: "delete-button", method: :delete, data: { confirm: 'Are you sure?' } %> 
       </div>
     <% end %>
   <% else %>
