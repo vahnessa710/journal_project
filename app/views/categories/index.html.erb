@@ -2,8 +2,15 @@
 
 <% content_for :title, "Categories" %>
 
+<% if session[:user_id] %>
+  <div class="logout-container">
+    <%= button_to "Logout", session_path, method: :delete, class: "logout-button" %>
+  </div>
+<% end %>
+
+
 <header>
-  <h1>Journal App</h1>
+  <h1>Everyday</h1>
 </header>
 <hr>
 
@@ -17,36 +24,12 @@
   </div>
 
   <div class ="new-category-and-cards-container">
-        
-    <%# ////        %>
 
     <div class = "new-category-container">
         
-          <p>New category</p>
+          <p>Start your journal</p>
+           <%= render "categories/form", category: @category %>
 
-            <%= form_with(model: @category) do |form| %>
-
-                      <% if @category.errors.any? %>
-                          <div style="color: red">
-                              <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
-
-                              <ul>
-                                <% @category.errors.each do |error| %>
-                                  <li><%= error.full_message %></li>
-                                <% end %>
-                              </ul>
-                          </div>
-                    <% end %>
-
-                  
-                      <%= form.text_field :name,  placeholder: "Title", class: "new-category-text-field" %>
-                  
-
-                  
-                    <%= form.submit "Save" %>
-                  
-            <% end %>
-          
   </div>
         
         <div id="categories"> 

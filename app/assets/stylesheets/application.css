@@ -16,9 +16,8 @@ body {
 /* Header */
 
 header h1 {
-    font-size: 2rem;
-    color: hsl(0, 0%, 30%);
-    font-weight: 600;
+    font-size: 45px;
+    color: #333;
     letter-spacing: 1px;
     text-align: center;
     margin-bottom: 20px;
@@ -31,7 +30,7 @@ header h1 {
     flex-wrap: wrap;
     gap: 15px;
     padding: 20px;
-    
+    flex: 1;
 }
 
 .category-card {
@@ -285,10 +284,11 @@ input:focus, button:focus {
   display: flex;
   flex-direction: column;
   margin-left: 50px;
+  flex:1;
 }
 
 .buggy-container{
-    background-color: hsl(84, 49%, 90%);
+    background: hsl(207, 94%, 90%);
     border-radius: 10px;
     margin-left: 30px;
     margin-top: 40px;
@@ -305,10 +305,25 @@ input:focus, button:focus {
 .index-container{
   display: flex;
   flex-direction: row;
+  height: 100vh;
 }
 
+.save-button {
+  background-color: hsl(211, 100%, 60%);
+  color: #fff;             /* White text */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.error-msg{
+font-size: 12px;
+color:red;
+}
 #my-scrollable-today {
-  width:35%;
+  width:20%;
   height: auto;/* Set a fixed height or max height for scrolling */
   overflow: auto; /* Allow the content to scroll */
   padding: 25px;

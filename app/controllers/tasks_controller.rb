@@ -25,11 +25,11 @@ class TasksController < ApplicationController
   # POST /categories/:category_id/tasks
   def create
     @task = @category.tasks.build(task_params)
-
+    @task.category.user = current_user 
     if @task.save
       redirect_to category_path(@category), notice: 'Task was successfully created.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

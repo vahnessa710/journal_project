@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id  # Log in the user after signup
-      redirect_to root_path, notice: "Account created successfully!"
+      redirect_to categories_path, notice: "Account created successfully!"
     else
       render :new, status: :unprocessable_entity
     end

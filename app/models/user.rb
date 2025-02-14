@@ -1,6 +1,8 @@
 class User < ApplicationRecord
-  has_many :categories, through: :tasks
   has_secure_password
-  validates :password, length: { minimum: 6 }
+  has_many :categories, dependent: :destroy
+  has_many :tasks, through: :categories, dependent: :destroy
+
   validates :email, presence: true, uniqueness: true
+  validates :password, length: { minimum: 6 }
 end
