@@ -1,2 +1,23 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<div class = "sign-up-field-container">
+  <div class = "sign-up-header">
+    <h2>Everyday</h2>
+  </div>
+
+  <%= form_with(url: session_path, method: :post, local: true, class: "sign-up-field") do |form| %>
+    <div class="login-field">
+      <%= form.label :email %>
+      <%= form.email_field :email, placeholder: "Enter your email", required: true, class: "sign-up-field" %>
+    </div>
+
+    <div class="login-field">
+      <%= form.label :password %>
+      <%= form.password_field :password, placeholder: "Enter your password", required: true, class: "sign-up-field" %>
+    </div>
+
+    <div class="login-field">
+      <%= form.submit "Login", class: "login-button" %>
+    </div>
+  <% end %>
+
+  <p class = "already" >Don't have an account? <%= link_to "Sign up", new_user_path, id: "sign-up-here" %></p>
+</div>

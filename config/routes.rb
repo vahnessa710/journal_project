@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  get "sessions/new"
-  get "sessions/create"
-  get "sessions/destroy"
-  get "users/new"
-  get "users/create"
+  resources :users, only: [:new, :create]
+  resource :session, only: [:new, :create, :destroy]
   resources :categories do
     resources :tasks
 
@@ -23,5 +20,5 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "sessions#new"
 end

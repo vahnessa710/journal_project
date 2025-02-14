@@ -398,3 +398,77 @@ a:hover {
   margin-top: 15px;
   color: hsl(240, 92%, 65%); /* Same color as unvisited to prevent purple */
 }
+
+/*sign up styles*/
+
+/* Center the form on the page */
+.sign-up-field-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+
+/* Header styling */
+.sign-up-header {
+  font-size: 35px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Form fields */
+.sign-up-field {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.sign-up-field label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.sign-up-field input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: hsl(0, 0%, 97%);
+}
+
+/* Submit button */
+.sign-up-field input[type="submit"] {
+  background: hsl(207, 100%, 60%);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s ease;
+  margin-top: 20px;
+}
+
+
+/* Already have an account? */
+.already {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Login link */
+#sign-up-here, #login-here {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+#login-here:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
