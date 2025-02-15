@@ -4,8 +4,18 @@
     <p>Sign up to start your journal.</p> 
   </div>
   
+  <% if @user.errors.any? %>
+    <div class="error-messages">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this account from being saved:</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <%= form_with model: @user, url: users_path, local: true do |f| %>
+  <%= form_with model: @user, url: users_path, local: true, html: { novalidate: true }  do |f| %>
     <div class = "sign-up-field">
       <%= f.label :email %>
       <%= f.email_field :email, required: true %>
@@ -26,5 +36,5 @@
     </div>
   <% end %>
 
-<p class = "already" >Already have an account? <%= link_to "Login here", new_session_path, id: "login-here" %></p>
+<p class = "already" >Already have an account? <%= link_to "Login here", login_path, id: "login-here" %></p>
 </div>

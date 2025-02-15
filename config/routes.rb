@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :users, only: [:new, :create]
-  resource :session, only: [:new, :create, :destroy]
+  get '/signup', to: 'users#new', as: 'signup'
+  get '/login', to: 'sessions#new', as: 'login'
+  resources :users, only: [:create]
+  resource :session, only: [:create, :destroy]
   resources :categories do
     resources :tasks
 
