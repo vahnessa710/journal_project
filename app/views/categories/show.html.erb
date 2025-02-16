@@ -1,8 +1,7 @@
 <%# <p style="color: green"><%= notice %>
 
 <%= render @category %>
-
-
+<%= render "tasks/tasks_under_category", tasks: @category.tasks, category: @category %>
 
 <%= link_to "Add Task", new_category_task_path(@category) %>
 
@@ -11,8 +10,7 @@
 </div>
 
 <div class ="back-categories-button">
-  <%= link_to "Back to categories", categories_path %>
+  <%= link_to "Back to categories", categories_path, id: "back-categories" %>
 </div>
-
 
 

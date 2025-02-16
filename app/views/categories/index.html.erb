@@ -1,5 +1,4 @@
-<%# <p style="color: green"><%= notice %>
-
+<%# <p style="color: green"><%= notice %> 
 <% content_for :title, "Categories" %>
 
 <% if session[:user_id] %>
@@ -8,51 +7,45 @@
   </div>
 <% end %>
 
-
 <header>
-  <h1>Everyday</h1>
+  <h1>Welcome to Everyday!</h1>
 </header>
 <hr>
 
-<div class = "index-container">
+<div class="index-container">
   
-  <div class = "buggy-container" id = "my-scrollable-today">
-
+  <!-- Tasks Due Today Section -->
+  <div class="buggy-container" id="my-scrollable-today">
     <%= render partial: "tasks/tasks_due_today", locals: { tasks_today: @tasks_today } %>
-    <%# <%= link_to "View Today's Tasks", tasks_due_today_path %>
-
+    <%# <%= link_to "View Today's Tasks", tasks_due_today_path %> 
   </div>
 
-  <div class ="new-category-and-cards-container">
-
-    <div class = "new-category-container">
+  <!-- New Category Form and Categories List -->
+  <div class="new-category-and-cards-container">
+    
+    <!-- New Category Form Section -->
+    <div class="new-category-container">
+      <p>Start your journal</p>
+      <%= render "categories/form", category: @category %>
+    </div>
         
-          <p>Start your journal</p>
-           <%= render "categories/form", category: @category %>
-
-  </div>
-        
-        <div id="categories"> 
-          <% @categories.each do |category| %>
-          
-          <div class="category-card" id="my-scrollable-div">
-            <%= link_to category_path(category), class: "main-category-link" do %>
-              <div class="category-actions">
-                
-                <h2><%= category.name %></h2>   
-              </div>
-          
-
-              <div class="tasks">
-                <% category.tasks.each do |task| %>
-                  <%= render partial: "tasks/show", locals: { task: task, category: category } %>
-                <% end %>
-              </div>
-        </div>
+    <!-- Categories List Section -->
+    <div id="categories">
+      <% @categories.each do |category| %>
+        <div class="category-card" id="my-scrollable-div">
+          <%= link_to category_path(category), class: "main-category-link" do %>
+            <div class="category-actions">
+              <h2><%= category.name %></h2>
+            </div>
+            <div class="tasks">
+              <% category.tasks.each do |task| %>
+                <%= render partial: "tasks/show", locals: { task: task, category: category } %>
+              <% end %>
+            </div>
           <% end %>
-      
-  <% end %>
-</div>
-
-</div>
-</div>
+        </div>
+      <% end %>
+    </div>
+    
+  </div> <!-- End new-category-and-cards-container -->
+</div> <!-- End index-container -->

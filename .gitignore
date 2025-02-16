@@ -32,3 +32,22 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore bundle install directory
+/vendor/bundle
+
+# Ignore node modules if you're using Node.js
+/node_modules
+
+# Ignore log and temp files
+/log/*
+/tmp/*
+
+# Ignore generated coverage reports
+/coverage/
+
+# Ignore yarn integrity file (if using Yarn)
+.yarn-integrity
+
+# Ignore dotenv files, which might contain sensitive credentials
+.env*

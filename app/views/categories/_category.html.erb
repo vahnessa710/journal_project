@@ -1,40 +1,17 @@
 <div id="<%= dom_id category %>">
+  
   <div class="category-name-container">
+    
     <h2>
       <%= category.name %>
     </h2>
 
-  
-  <%= link_to  edit_category_path(category), class: "link", id: "edit-category-link" do %>
-    <span class="material-symbols-outlined">edit_square</span>
-  <% end %>
-
-  </div>
-
-  
-
-<!-- This div Tasks to Do: -->
-  <div class="category-details">
-    <h3>Tasks to do:</h3>
-    <div class="tasks">
-  <% if @tasks.any? %>
-    <% @tasks.each do |task| %>
-      <div class="task">
-        <h3><%= task.name %></h3>
-        <p><%= task.description %></p>
-        <p>Due Date: <%= task.due_date || "No due date set" %></p>
-        <p>Priority: <%= task.priority ? "High" : "Normal" %></p>
-        <%# <p>Status: <%= task.completed ? "Completed" : "Incomplete" %>
-        <%= link_to 'Edit', edit_category_task_path(@category, task), id: "edit-button" %>| 
-         <%= button_to 'Delete', category_task_path(@category, task), id: "delete-button", method: :delete, data: { confirm: 'Are you sure?' } %> 
-      </div>
+    <%= link_to  edit_category_path(category), class: "link", id: "edit-category-link" do %>
+      <span class="material-symbols-outlined">edit_square</span>
     <% end %>
-  <% else %>
-    <p>No tasks for "<%= @category.name %>" yet.</p>
-  <% end %>
-</div>
 
   </div>
+
 </div>
 
 

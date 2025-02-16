@@ -3,6 +3,14 @@
     <h2>Everyday</h2>
   </div>
 
+  <div>
+    <% if flash[:alert] %>
+      <div class="error-messages">
+        <p><%= flash[:alert] %></p>
+      </div>
+    <% end %>
+  </div>
+
   <%= form_with(url: session_path, scope: :session, local: true, class: "sign-up-field") do |form| %>
     <div class="login-field">
       <%= form.label :email %>
