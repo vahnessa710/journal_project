@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Journal App Flow" do
-  scenario "User signs up, creates a category, adds a task for that category and deletes the task; User adds a task AGAIN to the same category and checks if it is rendered on Tasks for Today Section" do
+  scenario "User signs up, creates a category, adds a task for that category and deletes the task; User adds a task AGAIN to the same category and check if it is rendered on Tasks for Today Section" do
     #################################################################################
     # User Story #9: As a User, I want to ==sign up== so that I can create an account and link my own tasks.
     #################################################################################

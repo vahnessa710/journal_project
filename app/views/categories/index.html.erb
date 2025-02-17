@@ -41,21 +41,28 @@
         
     <!-- Categories List Section -->
     <div id="categories">
-      <% @categories.each do |category| %>
-        <div class="category-card" id="my-scrollable-div">
-          <%= link_to category_path(category), class: "main-category-link" do %>
-            <div class="category-actions">
-              <h2><%= category.name %></h2>
-            </div>
-            <div class="tasks">
-              <% category.tasks.each do |task| %>
-                <%= render partial: "tasks/show", locals: { task: task, category: category } %>
-              <% end %>
-            </div>
-          <% end %>
+      <% if @categories.any? %>
+        <% @categories.each do |category| %>
+          <div class="category-card" id="my-scrollable-div">
+            <%= link_to category_path(category), class: "main-category-link" do %>
+              <div class="category-actions">
+                <h2><%= category.name %></h2>
+              </div>
+              <div class="tasks">
+                <% category.tasks.each do |task| %>
+                  <%= render partial: "tasks/show", locals: { task: task, category: category } %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="empty-state">
+          <p>Click "Title" above to add a category and begin organizing your tasks!</p>
         </div>
       <% end %>
     </div>
+
     
   </div> <!-- End new-category-and-cards-container -->
 </div> <!-- End index-container -->

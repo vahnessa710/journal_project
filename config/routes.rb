@@ -7,8 +7,6 @@ Rails.application.routes.draw do
     resources :tasks
   end
 
-   # ✅ Add a route to fetch all tasks due today
-  get "/tasks/due_today", to: "tasks#due_today", as: "tasks_due_today"
   
   get "up" => "rails/health#show", as: :rails_health_check
 

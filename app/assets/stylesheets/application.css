@@ -27,12 +27,36 @@ header h1 {
 
 /* Index Categories Section */
 
+.empty-state {
+  text-align: center;
+  padding: 30px;
+  background-color: #f0f8ff;  /* A light, welcoming blue (AliceBlue) */
+  border: 2px dashed #cce7ff; /* A soft dashed border */
+  border-radius: 8px;
+  color: #555;
+  margin-top: 20px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  height: 120px;
+}
+
+.empty-state p {
+  margin: 0.5em 0;
+  font-size: 1.1em;
+}
+
 #categories {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     padding: 20px;
     flex: 1;
+    background-color: #f0f8ff;  /* A light, welcoming blue (AliceBlue) */
+    border: 2px dashed #cce7ff; /* A soft dashed border */
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-right: 20px;
 }
 
 .category-card {
@@ -256,6 +280,7 @@ input:focus, button:focus {
     height: 300px; /* Set a fixed height or max height for scrolling */
     overflow: auto; /* Allow the content to scroll */
     padding: 15px;
+    background-color: hsl(0, 0%, 98%);
   }
 
  /* Customize the scrollbar */
