@@ -1,14 +1,24 @@
 <%# <p style="color: green"><%= notice %> 
 <% content_for :title, "Categories" %>
 
-<% if session[:user_id] %>
-  <div class="logout-container">
-    <%= button_to "Logout", session_path, method: :delete, class: "logout-button" %>
+<div class = "logout-and-current-user">
+
+  <div class = "current-user">
+    <p>insert user icon here: user-email</p>
   </div>
-<% end %>
+
+  <div class = "logout-button">
+    <% if session[:user_id] %>
+      <div class="logout-container">
+        <%= button_to "Logout", session_path, method: :delete, class: "logout-button" %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
 
 <header>
-  <h1>Welcome to Everyday!</h1>
+  <h1>Whatever you wish to write, Everyday</h1>
 </header>
 <hr>
 
