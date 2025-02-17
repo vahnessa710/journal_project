@@ -81,18 +81,20 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: practice_journal_production
-    username: practice_journal
-    password: <%= ENV["PRACTICE_JOURNAL_DATABASE_PASSWORD"] %>
+    database: <%= ENV["PGDATABASE"] %>
+    username: <%= ENV["PGUSER"] %>
+    password: <%= ENV["PGPASSWORD"] %>
+    host: <%= ENV["PGHOST"] %>
+    port: 5432
   cache:
     <<: *primary_production
-    database: practice_journal_production_cache
+    database: <%= ENV["PGDATABASE"] %>_cache
     migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
-    database: practice_journal_production_queue
+    database: <%= ENV["PGDATABASE"] %>_queue
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: practice_journal_production_cable
+    database: <%= ENV["PGDATABASE"] %>_cable
     migrations_paths: db/cable_migrate
