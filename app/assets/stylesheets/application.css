@@ -1,12 +1,9 @@
-/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-/* Header */
 
 .logout-and-current-user{
  display: flex;
@@ -30,8 +27,8 @@ header h1 {
 .empty-state {
   text-align: center;
   padding: 30px;
-  background-color: #f0f8ff;  /* A light, welcoming blue (AliceBlue) */
-  border: 2px dashed #cce7ff; /* A soft dashed border */
+  background-color: #f0f8ff;  
+  border: 2px dashed #cce7ff; 
   border-radius: 8px;
   color: #555;
   margin-top: 20px;
@@ -51,23 +48,23 @@ header h1 {
     flex-wrap: wrap;
     gap: 15px;
     padding: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
     flex: 1;
-    background-color: #f0f8ff;  /* A light, welcoming blue (AliceBlue) */
-    border: 2px dashed #cce7ff; /* A soft dashed border */
-    border-radius: 8px;
+    background-color: #f0f8ff;  
+    border: 2px dashed #cce7ff;
     margin-top: 20px;
     margin-right: 20px;
 }
 
 .category-card {
-    border-radius: 10px;
+    border-radius: 6px;
     /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin-top: 20px;
     border: solid 1px hsl(0, 1%, 74%);
     padding: 20px;
     height: 180px;
-    
     width: 200px;
 }
 
@@ -81,64 +78,96 @@ header h1 {
     color: hsl(0, 0%, 25%);
 }
 
-.category-actions {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    color: #888;
-}
-
-.category-actions a {
-    color: #00aaff;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.category-actions a:hover {
-    color: hsl(195, 100%, 40%);
-}
-
 /* Show Category Section */
+
+.container{
+  margin-top: 20px;
+  padding: 30px;
+  width: 50%;
+}
+
+.tasklist-group{
+  margin-top: 20px;
+}
+
+.add-task{
+  margin-top: 25px;
+}
 
 .category-name-container{
     display: flex;
 }
 
-#edit-category-link{
-  background: none;  /* Remove button background */
-  border: none;      /* Remove button border */
-  padding: 0;        /* Remove padding */
-  font-size: 24px;   /* Set appropriate font size for the icon */
-  cursor: pointer;  /* Make it appear clickable */
+#edit-category-link {
+  display: inline-flex; 
+  align-items: center;  
+  justify-content: center;
+  padding: 6px;
+  transition: all 0.3s ease-in-out; 
+  cursor: pointer;
+  text-decoration: none; 
 }
 
 #edit-category-link .material-symbols-outlined {
-    font-size: 24px;  /* Ensure icon is the right size */
-    color: black;
-  }
+  font-size: 23px; 
+  color: #333; 
+  transition: color 0.3s ease-in-out;
+}
+
+#edit-category-link:hover .material-symbols-outlined {
+  color: #4A90E2; 
+}
 
 .main-category-link{
   display: block;
-  text-decoration: none; /* Optional: removes default underline */
-  color: inherit; /* Optional: keeps original text color */
+  text-decoration: none; 
+  color: inherit; 
 }
 
 
 .tasks {
-    margin-top: 15px;
-    font-size: 1.1rem;
-    color: #bbb;
-} 
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Space between tasks */
+  
+  margin: 20px auto; /* Center alignment */
+}
+
+.task-under-category-group {
+  background-color: #ffffff; /* Clean white background */
+  padding: 16px;
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 10px; /* Smooth edges */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06); /* Subtle shadow for depth */
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.task-under-category-group:hover {
+  transform: translateY(-3px); /* Slight lift effect */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Enhanced shadow on hover */
+}
+
+.task-under-category-group h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.task-under-category-group p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
 
 
-/*tasks list for show*/ 
+/*task card for show*/ 
 .task {
     background-color: hsl(0, 0%, 87%);
-    padding: 10px;
+    padding: 25px;
     border-radius: 8px;
     margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     font-size: 1rem;
     color: #333;
@@ -149,74 +178,122 @@ header h1 {
     background-color: #bbb;
 }
 
+.edit-and-delete-container {
+    display: flex;
+    justify-content: flex-end; 
+    gap: 20px; 
+    margin-top: 10px; 
+}
+.edit-and-delete-container {
+  display: flex;
+  justify-content: flex-end; 
+  gap: 10px; 
+  margin-top: 10px; 
+}
+
+#edit-button,
 #delete-button {
-    background-color: #e74c3c;
-    color: #fff;
-    padding: 7px 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: background-color 0.2s ease;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none; 
+}
+
+#edit-button {
+  background-color: #4A90E2; 
+  color: white;
+}
+
+#edit-button:hover {
+  background-color: #357ABD; 
+}
+
+#delete-button {
+  background-color: #E74C3C; 
+  color: white;
 }
 
 #delete-button:hover {
-    background-color: #c0392b;
+  background-color: #C0392B; 
 }
 
-/* General styling for the task container */
+.update-button {
+  background-color: #4A90E2; 
+  color: white; 
+  font-size: 16px; 
+  font-weight: bold;
+  border: none; 
+  border-radius: 6px; 
+  padding: 10px 16px; 
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.update-button:hover {
+  background-color: #357ABD; 
+}
+
+.update-button:active {
+  background-color: #2A5E9E; 
+  transform: translateY(0); 
+}
+
 #task-name {
-    font-size: 15px; /* Make the task name larger */
-    font-weight: bold; /* Make it bold for emphasis */
-    color: #333; /* Dark gray color for the task name */
+    font-size: 15px;
+    font-weight: bold; 
+    color: #333; 
     padding: 5px;
     border-radius: 8px;
   }
   
   p {
-    font-size: 1rem; /* Set a readable font size for the description and other text */
-    line-height: 1.6; /* Line spacing for better readability */
-    color: #555; /* Lighter gray text for general paragraphs */
-    margin: 5px 0; /* Space between each paragraph */
+    font-size: 1rem; 
+    line-height: 1.6; 
+    color: #555; 
+    margin: 5px 0; 
   }
   
   /* Style for the due date */
   p.due-date, p.no-due-date {
-    font-style: italic; /* Italicize the due date */
-    color: #777; /* Lighter gray for the due date */
+    font-style: italic; 
+    color: #777; 
     padding: 5px;
     border-radius: 8px;
   }
   
   p.due-date span {
-    font-weight: bold; /* Bold for the label */
+    font-weight: bold; 
   }
   
-  /* Style for priority */
   p.priority {
-    font-weight: bold; /* Make the priority label bold */
-    color: #fff; /* White text */
-    padding: 2px 5px; /* Padding around the priority */
-    border-radius: 5px; /* Rounded corners for the priority badge */
-    display: inline-block; /* Makes it inline with the text */
+    font-weight: bold; 
+    color: #fff; 
+    padding: 2px 5px; 
+    border-radius: 5px; 
+    display: inline-block; 
     font-size: 12px;
   }
   
   p.priority.high {
-    background-color: #e74c3c; /* Red color for high priority */
+    background-color: #e74c3c; 
   }
   
   p.priority.normal {
-    background-color: #2ecc71; /* Green color for normal priority */
+    background-color: #2ecc71; 
   }
   
-  /* Additional space between task details */
+  
   .task-details {
-    padding: 15px;
-    border: 1px solid #ddd; /* Light border around the task details */
-    border-radius: 8px; /* Rounded corners for the task box */
-    border-color: hsl(0, 0%, 88%); /* Light gray background */
-    margin-bottom: 20px; /* Space between tasks */
+    padding: 20px;
+    border: 1px solid #ddd; 
+    border-color: hsl(0, 0%, 88%); 
+    margin-bottom: 20px; 
+    margin-top: 20px;
   }
   
   
@@ -255,7 +332,7 @@ input:focus, button:focus {
 
 
 .delete-button {
-    margin-top:300px;
+    margin-top:200px;
     background-color: hsl(12, 100%, 40%);
     color: #fff;
     border: none;
@@ -316,7 +393,7 @@ input:focus, button:focus {
 
 .buggy-container{
     background: hsl(207, 94%, 90%);
-    border-radius: 10px;
+    border-radius: 5px;
     margin-left: 30px;
     margin-top: 40px;
 }
@@ -333,6 +410,7 @@ input:focus, button:focus {
   display: flex;
   flex-direction: row;
   height: 100vh;
+  padding-right: 35px;
 }
 
 .save-button {
@@ -349,8 +427,9 @@ input:focus, button:focus {
 font-size: 12px;
 color:red;
 }
+
 #my-scrollable-today {
-  width:20%;
+  width:18%;
   height: auto;/* Set a fixed height or max height for scrolling */
   overflow: auto; /* Allow the content to scroll */
   padding: 25px;
@@ -392,33 +471,38 @@ color:red;
 
 .new-category-container{
   border: solid 1px hsl(0, 1%, 74%);
-  border-radius: 10px;
+  border-radius: 7px;
   width: 50%;
-  height: 100px;
+  height: 150px;
+  padding: 20px;
   margin-left: 200px;
   margin-right: 200px;
   text-align: center;
   margin-top: 40px;
-  padding: 10px;
 }
 
-#edit-button{
-  background-color: #2ecc71;
-  color: #fff;
-  padding: 5px 12px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: background-color 0.2sease;
-}
 
-#edit-button:hover {
-  background-color: hsl(145, 63%, 39%);
-}
 
 .back-categories-button{
   margin-top: 30px;
+}
+
+textarea {
+  margin-top: 10px;
+  width: 100%;
+  min-height: 150px;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+  resize: vertical; /* Allows vertical resizing only */
+}
+
+textarea:focus {
+  border-color: #363f44;
+  box-shadow: 0 0 10px rgba(92, 98, 100, 0.5);
 }
 
 a{
@@ -432,8 +516,28 @@ a:hover {
 
 
 .edit-category-form-group{
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.form-field{ 
   margin-bottom: 15px;
-  margin-top: 15px;
+}
+
+.task-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background-color: hsl(0, 0%, 97%);
+}
+
+.task-input:focus {
+  border-color: hsl(201, 11%, 64%);
+  box-shadow: 0 0 10px rgba(92, 98, 100, 0.5);
 }
 
 .back-to-category-group{

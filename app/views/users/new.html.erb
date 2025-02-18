@@ -6,10 +6,11 @@
   
   <% if @user.errors.any? %>
     <div class="error-messages">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this account from being saved:</h2>
+      
       <ul>
         <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+          <% msg = msg.gsub("Password confirmation ", "") if msg.include?("Password confirmation") %>
+          <p><%= msg %></p>
         <% end %>
       </ul>
     </div>
@@ -18,17 +19,23 @@
   <%= form_with model: @user, url: users_path, local: true, html: { novalidate: true }  do |f| %>
     <div class = "sign-up-field">
       <%= f.label :email %>
-      <%= f.email_field :email, required: true %>
+      <%= f.email_field :email, required: true, class: ("input-error" if @user.errors[:email].any?) %>
+        <% if @user.errors[:email].any? %>
+          <p class="error-text"><%= @user.errors[:email].first %></p>
+        <% end %>
     </div>
 
     <div class = "sign-up-field">
       <%= f.label :password %>
-      <%= f.password_field :password, required: true %>
+        <%= f.password_field :password, required: true, class: ("input-error" if @user.errors[:password].any?) %>
+          <% if @user.errors[:password].any? %>
+            <p class="error-text"><%= @user.errors[:password].first %></p>
+          <% end %>
     </div>
 
     <div class = "sign-up-field">
       <%= f.label :password_confirmation, "Confirm Password" %>
-      <%= f.password_field :password_confirmation, required: true %>
+      <%= f.password_field :password_confirmation, required: true, class: ("input-error" if @user.errors[:password_confirmation].any?) %>
     </div>
 
     <div class = "sign-up-field">

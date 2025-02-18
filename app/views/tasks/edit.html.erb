@@ -1,34 +1,36 @@
-<h1>Edit Task</h1>
+<div class = "container">
+  <h1>Edit Task</h1>
 
-<%= form_with(model: [@category, @task], local: true) do |f| %>
-  <div class="task-details">
-    <div>
-      <%= f.label :name, "Task Name" %>
-      <%= f.text_field :name, required: true, class: "task-input" %>
-    </div>
+  <%= form_with(model: [@category, @task], local: true) do |f| %>
+    <div class="task-details">
+      <div class = "form-field">
+        <%= f.label :name, "Task Name" %>
+        <%= f.text_field :name, required: true, class: "task-input" %>
+      </div>
 
-    <div>
-      <%= f.label :description, "Description" %>
-      <%= f.text_area :description, rows: 3, class: "task-input" %>
-    </div>
+      <div class = "form-field">
+        <%= f.label :description, "Description" %>
+        <%= f.text_area :description, rows: 3, class: "task-input" %>
+      </div>
 
-    <div>
-      <%= f.label :due_date, "Due Date" %>
-      <%= f.date_field :due_date, class: "task-input" %>
-    </div>
+      <div class = "form-field">
+        <%= f.label :due_date, "Due Date" %>
+        <%= f.date_field :due_date, class: "task-input" %>
+      </div>
 
-    <div>
-      <%= f.label :priority, "Priority" %>
-      <%= f.select :priority, [["Normal", false], ["High", true]], {}, class: "task-input" %>
-    </div>
+      <div class = "form-field">
+        <%= f.label :priority, "Priority" %>
+        <%= f.select :priority, [["Normal", false], ["High", true]], {}, class: "task-input" %>
+      </div>
 
-    <div>
-      <%= f.submit "Update Task", class: "update-button" %>
+      <div>
+        <%= f.submit "Update Task", class: "update-button" %>
+      </div>
     </div>
+  <% end %>
+
+  <div>
+    <%= link_to "Show this category", @category, class: "show-category-link" %> |
+    <%= link_to "Back to categories", categories_path, class: "back-category-link" %>
   </div>
-<% end %>
-
-<div>
-  <%= link_to "Show this category", @category %> |
-  <%= link_to "Back to categories", categories_path %>
 </div>

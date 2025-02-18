@@ -1,15 +1,17 @@
 <div class="category-details">
-  <h3>Tasks to do:</h3>
+  <%# <h3>Tasks to do:</h3> %>
   <div class="tasks">
     <% if @tasks.any? %>
       <% @tasks.each do |task| %>
-        <div class="task">
+        <div class="task-under-category-group">
           <h3><%= task.name %></h3>
           <p><%= task.description %></p>
           <p>Due Date: <%= task.due_date || "No due date set" %></p>
           <p>Priority: <%= task.priority ? "High" : "Normal" %></p>
-          <%= link_to 'Edit', edit_category_task_path(@category, task), id: "edit-button" %> | 
-          <%= button_to 'Delete', category_task_path(@category, task), id: "delete-button", method: :delete, data: { confirm: 'Are you sure?' } %> 
+          <div class = "edit-and-delete-container">
+            <%= link_to 'Edit', edit_category_task_path(@category, task), id: "edit-button" %> | 
+            <%= button_to 'Delete', category_task_path(@category, task), id: "delete-button", method: :delete, data: { confirm: 'Are you sure?' } %> 
+          </div>
         </div>
       <% end %>
     <% else %>
