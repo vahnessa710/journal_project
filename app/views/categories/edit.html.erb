@@ -1,13 +1,16 @@
 <% content_for :title, "Editing category" %>
 
-<h1> Edit Category Name </h1>
+<div class = "container">
+  
+  <h1> Edit Category Name </h1>
+    
+      <%= render "form", category: @category %>
 
-<!-- This div will hold the edit form and be hidden initially -->
-  <div id="edit-category-form">
-    <%= render "form", category: @category %>
+  <div class = "back-to-category-group">
+    
+    <%= link_to @category, class: "back-link" do %>
+    <i class="fas fa-arrow-left"></i> Show this category
+    <%end%>
   </div>
 
-<div class = "back-to-category-group">
-  <%= link_to "Show this category", @category %> |
-  <%= link_to "Back to categories", categories_path %>
 </div>

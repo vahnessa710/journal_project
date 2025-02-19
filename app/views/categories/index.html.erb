@@ -3,24 +3,27 @@
 
 <div class = "logout-and-current-user">
 
-  <div class = "current-user">
-    <p><%= current_user.email %></p>
+  <div class = "everyday">
+    <p>Everyday</p>
   </div>
 
-  <div class = "logout-button">
-    <% if session[:user_id] %>
-      <div class="logout-container">
-        <%= button_to "Logout", session_path, method: :delete, class: "logout-button" %>
-      </div>
-    <% end %>
+  <div class = "user-info">
+    <div class = "current-user">
+      <i class="fas fa-envelope"></i>
+      <p><%= current_user.email %></p>
+    </div>
+
+    <div class = "logout-button">
+      <% if session[:user_id] %>
+        <div class="logout-container">
+          <%= button_to "Logout", session_path, method: :delete, class: "logout-button" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
 </div>
 
-<header>
-  <h1>Welcome to Everyday!</h1>
-</header>
-<hr>
 
 <div class="index-container">
   

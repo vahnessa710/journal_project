@@ -1,20 +1,19 @@
- <%= form_with(model: @category) do |form| %>
 
-                      <% if @category.errors.any? %>
+
+<div class="edit-category-form-group">
+  <%= form_with(model: @category) do |form| %>
+      <% if @category.errors.any? %>
                           
-                            <div>
-                              <% @category.errors.each do |error| %>
-                                <p class = "error-msg"><%= error.full_message %></p>
-                              <% end %>
-                            </div>
+        <div>
+          <% @category.errors.each do |error| %>
+            <p class = "error-msg"><%= error.full_message %></p>
+          <% end %>
+        </div>
                           
-                    <% end %>
-
+      <% end %>
                   
-                      <%= form.text_field :name,  placeholder: "Title", class: "new-category-text-field" %>
+      <%= form.text_field :name,  placeholder: "Title", class: "new-category-text-field" %>
+      <%= form.submit "Save", class: "save-button" %>
                   
-
-                  
-                    <%= form.submit "Save", class: "save-button" %>
-                  
-            <% end %>
+  <% end %>
+</div>

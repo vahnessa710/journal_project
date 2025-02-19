@@ -14,6 +14,7 @@ RSpec.feature "Journal App Flow" do
 
     # After signup, the app automatically logs the user in and redirects to categories#index
     expect(current_path).to eq(categories_path)
+    expect(page).to have_content("newuser@example.com")
     expect(page).to have_content("Start your journal")
 
     #################################################################################  
@@ -27,17 +28,15 @@ RSpec.feature "Journal App Flow" do
     #################################################################################
 
     expect(page).to have_content("Personal")
-    find("h2", text: "Personal").click
 
     # Verify we're on category#show for "Personal"
     expect(current_path).to eq(category_path(Category.last))
     expect(page).to have_content('No tasks for "Personal" yet.')
-    expect(page).to have_content("Add Task")
-
+    expect(page).to have_content('Add New Task')
     #################################################################################
     # User Story #4: As a User, I want to ==create a task for a specific category== so that I can organize tasks quicker
     #################################################################################
-    click_link "Add Task"
+    click_link "Add New Task"
 
     expect(page).to have_content("New Task for Personal")
 
@@ -72,7 +71,7 @@ RSpec.feature "Journal App Flow" do
 
     # adding task no. 2 for the same category, to check if it will reflect on tasks for today on index page 
     
-    click_link "Add Task"
+    click_link "Add New Task"
 
     expect(page).to have_content("New Task for Personal")
 

@@ -3,6 +3,9 @@ class User < ApplicationRecord
   has_many :categories, dependent: :destroy
   has_many :tasks, through: :categories, dependent: :destroy
 
-  validates :email, presence: true, uniqueness: true
-  validates :password, length: { minimum: 6 }
+  validates :email, presence: { message: "Email can't be blank." }, uniqueness: { message: "Email is already taken." }
+  
+  validates :password, presence: { message: "Password can't be blank." }, length: { minimum: 6, message: "Password must be at least 6 characters long." }
+
+  validates :password_confirmation, presence: { message: "Please confirm your password." }
 end
