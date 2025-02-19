@@ -346,6 +346,7 @@
     border-color: hsl(0, 0%, 88%); 
     margin-bottom: 20px; 
     margin-top: 20px;
+    border-radius: 6px;
   }
 
 /* New Category Button */
@@ -406,7 +407,7 @@ input:focus, button:focus {
     height: 300px; /* Set a fixed height or max height for scrolling */
     overflow: auto; /* Allow the content to scroll */
     padding: 15px;
-    background-color: hsl(0, 0%, 98%);
+    background-color: hsl(60, 81%, 88%); /* Light gray background */
   }
 
  /* Customize the scrollbar */
@@ -441,7 +442,7 @@ input:focus, button:focus {
 }
 
 .buggy-container{
-    background: hsl(207, 94%, 90%);
+    background: hsl(106, 81%, 92%);
     border-radius: 5px;
     margin-left: 30px;
     margin-top: 40px;

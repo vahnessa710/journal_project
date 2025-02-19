@@ -30,7 +30,8 @@
   <% end %>
 
   <div>
-    <%= link_to "Show this category", @category, class: "show-category-link" %> |
-    <%= link_to "Back to categories", categories_path, class: "back-category-link" %>
+    <%= link_to @category, class: "back-link" do %> 
+      <i class="fas fa-arrow-left"></i> Show this category
+    <% end %>
   </div>
 </div>
