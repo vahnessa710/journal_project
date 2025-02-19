@@ -242,8 +242,9 @@
   margin-top: 10px; 
 }
 
+
 #edit-button,
-#delete-button {
+#delete-task {
   padding: 8px 12px;
   font-size: 14px;
   border: none;
@@ -262,12 +263,12 @@
   background-color: #357ABD; 
 }
 
-#delete-button {
+#delete-task {
   background-color: #E74C3C; 
   color: white;
 }
 
-#delete-button:hover {
+#delete-task:hover {
   background-color: #C0392B; 
 }
 

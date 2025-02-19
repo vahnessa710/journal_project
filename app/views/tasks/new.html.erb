@@ -1,40 +1,48 @@
-<h1>New Task for <%= @category.name %> </h1>
+<div class = "container">
+  <h1>New Task for <%= @category.name %> </h1>
 
-<%= form_with(model: [@category, @task], local: true) do |form| %>
-  <% if @task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
-      <ul>
-        <% @task.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= form_with(model: [@category, @task], local: true) do |form| %>
+    <div class="task-details">
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+      <% if @task.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+          <ul>
+            <% @task.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-field">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      </div>
+
+      <div class="form-field">
+        <%= form.label :description %>
+        <%= form.text_area :description %>
+      </div>
+
+      <div class="form-field">
+        <%= form.label :due_date %>
+        <%= form.datetime_local_field :due_date %>
+      </div>
+
+      <div class="form-field">
+        <%= form.label :priority %>
+        <%= form.check_box :priority %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit "Create Task", class: "update-button" %>
+      </div>
+
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :due_date %>
-    <%= form.datetime_local_field :due_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :priority %>
-    <%= form.check_box :priority %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<%= link_to "Show this category", @category, class: "show-category-link" %> 
+  <%= link_to @category, id: "back-categories", class: "back-link" do %>
+      <i class="fas fa-arrow-left"></i> Show this category
+    <% end %>
+</div>
