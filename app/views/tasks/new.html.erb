@@ -17,23 +17,25 @@
 
       <div class="form-field">
         <%= form.label :name %>
-        <%= form.text_field :name %>
+        <%= form.text_field :name, class: "task-input"  %>
       </div>
 
       <div class="form-field">
         <%= form.label :description %>
-        <%= form.text_area :description %>
+        <%= form.text_area :description, class: "task-input" %>
       </div>
 
       <div class="form-field">
         <%= form.label :due_date %>
-        <%= form.datetime_local_field :due_date %>
+        <%= form.datetime_local_field :due_date, class: "task-input" %>
       </div>
 
       <div class="form-field">
-        <%= form.label :priority %>
-        <%= form.check_box :priority %>
+        <%= form.label :priority, "Priority" %>
+        <%= form.select :priority, [["Normal", false], ["High", true]], {}, class: "task-input" %>
       </div>
+
+       
 
       <div class="actions">
         <%= form.submit "Create Task", class: "update-button" %>
