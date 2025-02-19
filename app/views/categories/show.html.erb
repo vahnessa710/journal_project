@@ -5,7 +5,9 @@
   <div class = "tasklist-group">
     <%= render "tasks/tasks_under_category", tasks: @category.tasks, category: @category %>
     <p class = "add-task">
-      <%= link_to "Add New Task", new_category_task_path(@category) %>
+      <%= link_to new_category_task_path(@category), class: "add-task-link" do %>
+        <i class="fas fa-plus"></i> Add New Task
+      <% end %>
     </p>
   </div>
 
@@ -14,6 +16,8 @@
   </div>
 
   <div class ="back-categories-button">
-    <%= link_to "Back to categories", categories_path, id: "back-categories" %>
+    <%= link_to categories_path, id: "back-categories", class: "back-link" do %>
+      <i class="fas fa-arrow-left"></i> Back to categories
+    <% end %>
   </div>
 </div>

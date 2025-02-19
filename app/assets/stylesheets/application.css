@@ -128,9 +128,25 @@
   margin-top: 20px;
 }
 
-.add-task{
-  margin-top: 25px;
+.add-task-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333; /* Adjust as needed */
 }
+
+.add-task-link:hover{
+  color: hsl(211, 100%, 60%);
+}
+
+.add-task-link i {
+  font-size: 18px;
+  color: #007bff; /* Blue color for the plus icon */
+}
+
 
 .category-name-container{
     display: flex;
@@ -516,6 +532,26 @@ color:red;
 .back-categories-button{
   margin-top: 30px;
 }
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333; /* Adjust color as needed */
+}
+
+.back-link:hover{
+  color: hsl(211, 100%, 60%);
+}
+
+.back-link i {
+  font-size: 18px;
+  color: hsl(211, 100%, 50%); /* Adjust icon color */
+}
+
 
 textarea {
   margin-top: 10px;
