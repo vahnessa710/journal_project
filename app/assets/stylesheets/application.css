@@ -5,22 +5,61 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.logout-and-current-user{
- display: flex;
- justify-content: space-around;
- background-color:hsl(0, 0%, 95%);
- padding: 4px;
- margin: 10px;
+.logout-and-current-user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Keeps "Everyday" on the left */
+  background-color: #f8f9fa; /* Light gray background */
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  font-family: "Arial", sans-serif;
 }
 
-header h1 {
-    font-size: 45px;
-    color: #333;
-    letter-spacing: 1px;
-    text-align: center;
-    margin-bottom: 20px;
-    padding: 10px;
+.everyday p {
+  font-size: 25px;
+  font-weight: bold;
+  color: #333;
+  letter-spacing: 1px;
 }
+
+/* Wrap user email and logout button together */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Adjust spacing between email & logout */
+}
+.current-user{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.current-user p {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+.current-user i {
+  font-size: 18px;
+  color: #333;
+}
+
+.logout-button {
+  background-color: #e74c3c; /* Red button */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #c0392b; /* Darker red on hover */
+}
+
 
 /* Index Categories Section */
 
@@ -59,7 +98,6 @@ header h1 {
 
 .category-card {
     border-radius: 6px;
-    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin-top: 20px;
     border: solid 1px hsl(0, 1%, 74%);
@@ -75,7 +113,7 @@ header h1 {
 
 .category-card h2 {
     font-size: 1.3rem;
-    color: hsl(0, 0%, 25%);
+    color: #333333;
 }
 
 /* Show Category Section */
@@ -124,12 +162,10 @@ header h1 {
   color: inherit; 
 }
 
-
 .tasks {
   display: flex;
   flex-direction: column;
   gap: 16px; /* Space between tasks */
-  
   margin: 20px auto; /* Center alignment */
 }
 
@@ -160,7 +196,6 @@ header h1 {
   line-height: 1.5;
   margin-bottom: 6px;
 }
-
 
 /*task card for show*/ 
 .task {
@@ -295,8 +330,6 @@ header h1 {
     margin-bottom: 20px; 
     margin-top: 20px;
   }
-  
-  
 
 /* New Category Button */
 
@@ -314,7 +347,6 @@ header h1 {
 .new-category:hover {
     background-color: #00bfff;
 }
-
 
 /* Input Fields and Buttons */
 input, button {
@@ -480,8 +512,6 @@ color:red;
   text-align: center;
   margin-top: 40px;
 }
-
-
 
 .back-categories-button{
   margin-top: 30px;
