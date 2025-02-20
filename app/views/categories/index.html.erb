@@ -30,14 +30,13 @@
   <!-- Tasks Due Today Section -->
   <div class="buggy-container" id="my-scrollable-today">
     <%= render partial: "tasks/tasks_due_today", locals: { tasks_today: @tasks_today } %>
-    <%# <%= link_to "View Today's Tasks", tasks_due_today_path %> 
   </div>
 
   <!-- New Category Form and Categories List -->
   <div class="new-category-and-cards-container">
     
     <!-- New Category Form Section -->
-    <div class="new-category-container">
+    <div class="new-category-container <%= 'has-errors' if @category.errors.any? %>">
       <p>Start your journal</p>
       <%= render "categories/form", category: @category %>
     </div>
@@ -46,6 +45,7 @@
     <div id="categories">
       <% if @categories.any? %>
         <% @categories.each do |category| %>
+        
           <div class="category-card" id="my-scrollable-div">
             <%= link_to category_path(category), class: "main-category-link" do %>
               <div class="category-actions">
@@ -58,6 +58,8 @@
               </div>
             <% end %>
           </div>
+          
+
         <% end %>
       <% else %>
         <div class="empty-state">

@@ -403,7 +403,7 @@ input:focus, button:focus {
 }
 
 #my-scrollable-div {
-    width:25%;
+    width: 22%;
     height: 300px; /* Set a fixed height or max height for scrolling */
     overflow: auto; /* Allow the content to scroll */
     padding: 15px;
@@ -531,6 +531,18 @@ color:red;
   margin-top: 40px;
 }
 
+.new-category-container.has-errors{
+  border: solid 1px hsl(0, 1%, 74%);
+  border-radius: 7px;
+  width: 50%;
+  height: 200px;
+  padding: 20px;
+  margin-left: 200px;
+  margin-right: 200px;
+  text-align: center;
+  margin-top: 40px;
+}
+
 .back-categories-button{
   margin-top: 30px;
 }
@@ -587,6 +599,7 @@ a:hover {
   margin-bottom: 30px;
   margin-top: 20px;
 }
+
 
 .form-field{ 
   margin-bottom: 15px;

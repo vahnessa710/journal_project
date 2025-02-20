@@ -1,22 +1,12 @@
 <div class = "sign-up-field-container">
+
   <div class = "sign-up-header">
     <h2>Everyday</h2>
     <p>Sign up to start your journal.</p> 
   </div>
-  
-  <% if @user.errors.any? %>
-    <div class="error-messages">
-      
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <% msg = msg.gsub("Password confirmation ", "") if msg.include?("Password confirmation") %>
-          <p><%= msg %></p>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <%= form_with model: @user, url: users_path, local: true, html: { novalidate: true }  do |f| %>
+
     <div class = "sign-up-field">
       <%= f.label :email %>
       <%= f.email_field :email, required: true, class: ("input-error" if @user.errors[:email].any?) %>
@@ -29,13 +19,16 @@
       <%= f.label :password %>
         <%= f.password_field :password, required: true, class: ("input-error" if @user.errors[:password].any?) %>
           <% if @user.errors[:password].any? %>
-            <p class="error-text"><%= @user.errors[:password].first %></p>
+            <p class="error-text"><%= @user.errors[:password].second %></p>
           <% end %>
     </div>
 
     <div class = "sign-up-field">
       <%= f.label :password_confirmation, "Confirm Password" %>
       <%= f.password_field :password_confirmation, required: true, class: ("input-error" if @user.errors[:password_confirmation].any?) %>
+       <% if @user.errors[:password_confirmation].any? %>
+            <p class="error-text"><%= @user.errors[:password_confirmation].first %></p>
+          <% end %>
     </div>
 
     <div class = "sign-up-field">
