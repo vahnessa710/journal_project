@@ -31,8 +31,9 @@ class CategoriesController < ApplicationController
       redirect_to @category, notice: "Category was successfully created."
     else
       # Prepare variables needed by the index view
-      @categories = Category.includes(tasks: :category).order(created_at: :desc)
-      @tasks_today = Task.where(due_date: Date.today.all_day).order(priority: :desc)
+      @categories = current_user.categories.includes(tasks: :category).order(created_at: :desc)
+      @tasks_today = current_user.tasks.where(due_date: Date.today.all_day).order(priority: :desc)
+
       render :index, status: :unprocessable_entity
     end
   end
@@ -64,11 +65,12 @@ class CategoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
-      @category = Category.find(params.expect(:id))
+      @category = current_user.categories.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def category_params
-      params.expect(category: [ :name ])
+      params.require(:category).permit(:name)
     end
+    
 end

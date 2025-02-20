@@ -69,7 +69,7 @@ RSpec.feature "Journal App Flow" do
     click_button "Delete"
     expect(page).to have_content('No tasks for "Personal" yet.')
 
-    # adding task no. 2 for the same category, to check if it will reflect on tasks for today on index page 
+    ### adding task no. 2 for the same category, to check if it will reflect on tasks for today on index page ###
     
     click_link "Add New Task"
 
@@ -93,13 +93,29 @@ RSpec.feature "Journal App Flow" do
      expect(page).to have_content("EDITED")
   
      #################################################################################
-     # User Story #8: As a User, I want to ==view my== ==tasks for today== for me to remind what are my priorities for today
+     # User Story #8: As a User, I want to ==view my tasks for today== for me to remind what are my priorities for today
      #################################################################################
 
      click_link "Back to categories"
      expect(page).to have_content("Tasks for Today ⏰")
      expect(page).to have_content("Tinola")
-     
+
+    ###################################################################################
+    # User Story #10: As s User, I want to ==login my account== so that I can access my account and link my own tasks.
+    ###################################################################################
+
+    click_button "Logout"
+    visit login_path
+
+    fill_in "Email", with: "newuser@example.com"
+    fill_in "Password", with: "password"
+    click_button "Login"
+
+    expect(page).to have_content("Start your journal")
+    expect(current_path).to eq(categories_path)
+    expect(page).to have_content("Today")
+    expect(page).to have_content("Tinola")
+    expect(page).to have_content("newuser@example.com")
   end
 end
 
