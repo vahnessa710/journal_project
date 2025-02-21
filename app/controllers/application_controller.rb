@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   def require_login
     unless logged_in?
       flash[:alert] = "Please log in to continue."
-      redirect_to login_path  # or wherever you want to redirect unauthenticated users
+      redirect_to login_path  
     end
   end
 end

@@ -1,6 +1,5 @@
 <div class="task-details">
   <h4 id="task-name"><%= task.name %></h4>
-  <%# <p><%= task.description %>
 
   <% if task.due_date.present? %>
     <p class="due-date">
@@ -14,3 +13,5 @@
     Priority: <%= task.priority ? "High" : "Normal" %>
   </p>
 </div>
+
+<%# category#index tasks display %>

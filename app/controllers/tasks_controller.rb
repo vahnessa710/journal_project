@@ -2,16 +2,13 @@ class TasksController < ApplicationController
 
   before_action :set_category, except: [:due_today] 
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /tasks/due_today
-  def due_today
+  def due_today 
     @tasks_due_today = Task.where(due_date: Date.today.all_day).order(priority: :desc)
   end
 
-  # GET /categories/:category_id/tasks
-  def index
-    @tasks_today = Task.where(due_date: Date.today.all_day).where(category: @category).order(priority: :desc)
-  end
 
   # GET /categories/:category_id/tasks/:id
   def show
@@ -27,7 +24,7 @@ class TasksController < ApplicationController
     @task = @category.tasks.build(task_params)
     @task.category.user = current_user 
     if @task.save
-      redirect_to category_path(@category), notice: 'Task was successfully created.'
+      redirect_to category_path(@category)
     else
       render :new, status: :unprocessable_entity
     end
@@ -40,7 +37,7 @@ class TasksController < ApplicationController
   # PATCH/PUT /categories/:category_id/tasks/:id
   def update
     if @task.update(task_params)
-      redirect_to category_path(@category), notice: 'Task was successfully updated.'
+      redirect_to category_path(@category)
     else
       render :edit
     end
@@ -49,19 +46,20 @@ class TasksController < ApplicationController
   # DELETE /categories/:category_id/tasks/:id
   def destroy
     @task.destroy
-    redirect_to category_path(@category), notice: 'Task was successfully deleted.'
+    redirect_to category_path(@category)
   end
 
   private
     def set_category
-      @category = Category.find(params[:category_id])  # Find the category for nested resources
+      @category = Category.find(params[:category_id])  # finds the category associated with the task
     end
 
     def set_task
-      @task = @category.tasks.find(params[:id])  # Find the task within the specific category
+      @task = @category.tasks.find(params[:id])  # find the task within the specific category; ensure the task belongs to the right category
     end
 
     def task_params
-      params.require(:task).permit(:name, :description, :due_date, :priority, :completed)
+      params.require(:task).permit(:name, :description, :due_date, :priority)
     end
+
 end

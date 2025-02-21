@@ -8,18 +8,19 @@
           <p><%= task.description %></p>
           <p>Due Date: <%= task.due_date || "No due date set" %></p>
           <p>Priority: <%= task.priority ? "High" : "Normal" %></p>
-          <div class = "edit-and-delete-container">
-            <%= link_to edit_category_task_path(@category, task), id: "edit-button", class: "edit-link" do %>
-              <i class="fas fa-edit"></i> Edit
-            <% end %>
-            <%= button_to category_task_path(@category, task), method: :delete, id: "delete-task", data: { confirm: 'Are you sure?' } do %>
-  <i class="fas fa-trash-alt"></i> Delete
-<% end %>
-          </div>
+            <div class = "edit-and-delete-container">
+              <%= link_to edit_category_task_path(@category, task), id: "edit-button", class: "edit-link" do %>
+                <i class="fas fa-edit"></i> Edit
+              <% end %>
+              <%= button_to category_task_path(@category, task), method: :delete, id: "delete-task", data: { confirm: 'Are you sure?' } do %>
+                <i class="fas fa-trash-alt"></i> Delete
+              <% end %>
+            </div>
         </div>
       <% end %>
     <% else %>
       <p>No tasks for "<%= @category.name %>" yet.</p>
     <% end %>
   </div>
+  
 </div>
